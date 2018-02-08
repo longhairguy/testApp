@@ -1,8 +1,15 @@
-import * as actionTypes from './actionTypes';
 
+import * as actionType from '../actions/actionTypes';
 
-export const auth_start = () =>{
+export const auth_start = (name) => {
     return {
-        type:actionTypes.AUTH_START
+        type:actionType.AUTH_START,
+        name:name
+    }
+}
+
+export const auth_stop = () => {
+    return {
+        type:actionType.AUTH_STOP
     }
 }

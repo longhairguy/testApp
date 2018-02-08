@@ -33,7 +33,7 @@ const imageArea = (props) => {
     <div className={classes.ImageArea}>
         <div className={classes.box2}>
              <h3>Box 1</h3>
-             <img src={card_1} />
+             <img src={card_1} alt="card_area" />
              <p>
                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                  Lorem Ipsum has beindustrys standard dummy text ever since the 1500s,
@@ -47,7 +47,7 @@ const imageArea = (props) => {
         <div className={classes.box3}>
 
             <h3>Box 2</h3>
-            <img src={card_2} />
+            <img src={card_2}  alt="card_area"/>
             <p>
                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                  Lorem Ipsum has been the industry standard dummy text ever since the 1500s,
@@ -60,7 +60,7 @@ const imageArea = (props) => {
         <div className={classes.box4}>
 
             <h3>Box 3</h3>
-            <img src={card_3} />
+            <img src={card_3}  alt="card_area"/>
             <p>
                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                  Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,

@@ -5,14 +5,11 @@ import Button from '../../../UI/Button/Button';
 import {connect} from 'react-redux';
 import * as action from '../../../../store/actions/index';
 class NavigationItem extends Component {
-  componentDidUpdate(){
-    console.log(this.props.modalState)
-  }
     render(){
       return (
         <div>
           <li className={classes.NavigationItem}>
-              <Button btnType="Primary" clicked={this.props.onModalClicked}>{this.props.children}</Button>
+              <Button btnType="Primary" clicked={()=>this.props.onModalClicked(this.props.name)}>{this.props.children}</Button>
           </li>
         </div>
       )
@@ -21,13 +18,13 @@ class NavigationItem extends Component {
 
 const mapStateToProps = state => {
   return {
-    modalState:state.modalState
+    modalState:state.modalState, 
   }
 }
 
 const mapDisptachToProps = dispatch => {
   return {
-    onModalClicked:()=>dispatch(action.auth_start())
+    onModalClicked:(name)=>dispatch(action.auth_start(name))
   }
 }
 
