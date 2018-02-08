@@ -1,0 +1,188 @@
+.ImageArea {
+    background-color: transparent;
+    display: grid;
+    grid-template-columns: 1fr ;
+    grid-gap:4em;
+    align-items: center;
+    padding: 5%;
+
+}
+.box1{
+    /*align-self:start*/
+    background-color: #E7E7E7;
+    border-radius: 2px ;
+    font-weight: bold;
+    padding: 2%;
+    box-sizing: border-box;
+    position: relative;
+    top:-15px;
+    text-align: center;
+    margin: 2px
+
+  }
+
+  .ImageArea .box2{
+        /*align-self:start
+        grid-column: 1/3;
+        grid-row: 1/3;
+        */
+        background-color: transparent;
+        box-shadow:5px 10px #80BD9E;
+        border-radius: 2px ;
+        text-align: center;
+        font-weight: bold;
+        box-sizing: border-box;
+      }
+
+.ImageArea .box2 img {
+        width: 100%;
+        height: auto;
+    }
+
+    .ImageArea .box3{
+          /*align-self:start
+          grid-column: 1/3;
+          grid-row: 1/3;
+          */
+          background-color: transparent;
+          box-shadow:5px 10px #80BD9E;
+          border-radius: 2px ;
+          text-align: center;
+          font-weight: bold;
+          box-sizing: border-box;
+        }
+
+    .ImageArea .box3 img {
+        width: 100%;
+        height: auto;
+    }
+    .ImageArea .box4{
+          /*align-self:start
+          grid-column: 1/3;
+          grid-row: 1/3;
+          */
+          background-color: transparent;
+          box-shadow:5px 10px #80BD9E;
+          border-radius: 2px ;
+          text-align: center;
+          font-weight: bold;
+          box-sizing: border-box;
+        }
+
+    .ImageArea .box4 img {
+        width: 100%;
+        height: auto;
+    }
+
+.ImageArea > div {
+    background-color: #ccc;
+    border:1px solid grey;
+    padding: 1em;
+}
+
+@media only screen and (min-width:480px){
+    .ImageArea {
+        background-color: transparent;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-auto-rows: minmax(100px,auto);
+        grid-gap:4em;
+        align-items: center;
+        padding: 4%;
+        position:relative;
+        top:-15px;
+    }
+    .box1{
+        /*align-self:start*/
+        background-color: transparent;
+        height: 770px;
+        border-radius: 2px ;
+        font-weight: bold;
+        padding: 1%;
+        box-sizing: border-box;
+        position: relative;
+        top:-17px;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-gap:2em;
+        align-items: center;
+      }
+
+    .box1 div {
+      background-color: transparent;
+      padding: 1em;
+    }
+    .left_box{
+      font-weight: bold;
+      justify-items:center;
+      text-align: left;
+      border: 1px solid coral;
+      box-shadow:5px 10px orange;
+
+    }
+
+    .right_box{
+      background-color:#E7E7E7;
+      height:500px;
+
+    }
+    .ImageArea .box2{
+          /*align-self:start
+          grid-column: 1/3;
+          grid-row: 1/3;
+          */
+          background-color: transparent;
+          box-shadow:5px 10px #80BD9E;
+          border-radius: 2px ;
+          text-align: center;
+          font-weight: bold;
+          box-sizing: border-box;
+        }
+
+    .ImageArea .box2 img {
+        width: 100%;
+        height: auto;
+    }
+
+    .ImageArea .box3{
+          /*align-self:start
+          grid-column: 1/3;
+          grid-row: 1/3;
+          */
+          background-color: transparent;
+          box-shadow:5px 10px #4c4c4c;
+          border-radius: 2px ;
+          text-align: center;
+          font-weight: bold;
+          box-sizing: border-box;
+        }
+
+    .ImageArea .box3 img {
+        width: 100%;
+        height: auto;
+    }
+    .ImageArea .box4{
+          /*align-self:start
+          grid-column: 1/3;
+          grid-row: 1/3;
+          */
+          background-color: transparent;
+          box-shadow:5px 10px #aaa;
+          border-radius: 2px ;
+          text-align: center;
+          font-weight: bold;
+          box-sizing: border-box;
+        }
+
+    .ImageArea .box4 img {
+        width: 100%;
+        height: auto;
+    }
+
+    .ImageArea > div {
+        background-color: #ccc;
+        border:1px solid grey;
+        padding: 1em;
+    }
+
+}
