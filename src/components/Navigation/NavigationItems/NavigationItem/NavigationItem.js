@@ -24,7 +24,7 @@ const mapStateToProps = state => {
 
 const mapDisptachToProps = dispatch => {
   return {
-    onModalClicked:(name)=>dispatch(action.auth_start(name))
+    onModalClicked:(name)=>dispatch(action.modal_start(name))
   }
 }
 

@@ -1,5 +1,12 @@
 export {
-    auth_start,
-    auth_stop,
-    auth
+    modal_start,
+    modal_stop,
+    
 } from './home';
+
+export {
+    auth,
+    logout,
+    authCheckState,
+    setAuthRedirectPath
+} from './auth';

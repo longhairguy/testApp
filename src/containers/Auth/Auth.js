@@ -5,6 +5,8 @@ import classes from './Auth.css';
 import {connect} from 'react-redux';
 import {checkValidity} from '../../shared/utility';
 import * as action from '../../store/actions/index'; 
+import Spinner from '../../components/UI/Spinner/Spinner';
+import {Redirect} from 'react-router-dom';
 class Auth extends Component {
     
     state = {
@@ -141,6 +143,9 @@ class Auth extends Component {
         formIsValid: false,
 
     }
+
+
+
     inputChangedHandler = (event,controlName) => {
 
         if(this.props.clickedElement === 'login') {
@@ -204,6 +209,8 @@ class Auth extends Component {
         }
         
     }
+ 
+
 
     render(){
         const loginElementArray = [];
@@ -255,12 +262,20 @@ class Auth extends Component {
                 
             ))
         }
+        if(this.props.loading){
+            form = <Spinner />
+        }
+        let title = 'LOG IN';
+        if(this.props.clickedElement === "signup"){
+            title = 'SIGN UP'
+        }
         return (
             <div className={classes.Auth}>
+                <h1>{title}</h1>
                 <form onSubmit={this.submitHandler}>
                     {form}
-                <Button btnType="Login_SignUp">{this.props.clickedElement}</Button>
-
+                
+                {!this.props.loading?<Button btnType="Login_SignUp">&nbsp;{this.props.clickedElement}</Button>:null}                
                 </form>
             </div>
 
@@ -273,14 +288,19 @@ class Auth extends Component {
 
 const mapStateToProps = state => {
     return {
-        clickedElement:state.name,
-        modalState:state.modalState
+        clickedElement:state.modal.name,
+        modalState:state.modal.modalState,
+        loading:state.auth.loading,
+        loggedIn:state.auth.loggedIn,
+        authRedirect:state.auth.authRedirect
     }       
 }
 
 const mapDisptachToProps = dispatch => {
     return{
-        onAuth:(data)=>dispatch(action.auth(data))
+        onAuth:(data)=>dispatch(action.auth(data)),
+        onSetAuthRedirectPath: () => dispatch( action.setAuthRedirectPath( '/' ))
+        
     }
 }
 export default connect(mapStateToProps,mapDisptachToProps)(Auth)

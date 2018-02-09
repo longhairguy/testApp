@@ -7,6 +7,7 @@ import ImageArea from '../../components/UI/ImageArea/ImageArea';
 import {connect} from 'react-redux'; 
 import * as actions from '../../store/actions/index';
 import Auth from '../Auth/Auth';
+import Spinner from '../../components/UI/Spinner/Spinner';
 class Home extends Component {
 
     render () {
@@ -15,7 +16,8 @@ class Home extends Component {
                 <NavLayout />
                 <ImageArea />
                 
-                    <Modal show={this.props.modalState} modalClosed={this.props.onModalClosed}>
+                
+                    <Modal show={this.props.modalState && !this.props.loggedIn} modalClosed={this.props.onModalClosed}>
                         {this.props.modalState?<Auth/>:null}
                     </Modal>
                 
@@ -29,14 +31,15 @@ class Home extends Component {
 
 const mapStateToProps = state => {
  return {
-    name:state.name,
-    modalState:state.modalState
+    name:state.modal.name,
+    modalState:state.modal.modalState,
+    loggedIn:state.auth.loggedIn
  }   
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        onModalClosed:()=>dispatch(actions.auth_stop())
+        onModalClosed:()=>dispatch(actions.modal_stop())
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(Home);

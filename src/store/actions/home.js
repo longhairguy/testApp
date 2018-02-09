@@ -1,29 +1,29 @@
 
 import * as actionType from '../actions/actionTypes';
 import axios from 'axios';
-export const auth_start = (name) => {
+export const modal_start = (name) => {
     return {
-        type:actionType.AUTH_START,
+        type:actionType.MODAL_START,
         name:name
     }
 }
 
-export const auth_stop = () => {
+export const modal_stop = () => {
     return {
-        type:actionType.AUTH_STOP
+        type:actionType.MODAL_STOP
     }
 }
 
-export const on_auth = () => {
+export const auth_start= () => {
     return {
-        type:actionType.ON_AUTH,
+        type:actionType.AUTH_START,
         error:null
     }
 }
 
-export const on_auth_fail = (error) => {
+export const auth_fail = (error) => {
     return {
-        type:actionType.ON_AUTH_FAIL,
+        type:actionType.AUTH_FAIL,
         error:error
     }
 }
@@ -31,7 +31,7 @@ export const on_auth_fail = (error) => {
 export const auth = (data) => {
     console.log(data)
     return dispatch => {
-        dispatch(on_auth());
+        dispatch(auth_start());
         let funcType = data.type
         let authData = null;
         let url = null;
@@ -58,7 +58,7 @@ export const auth = (data) => {
             console.log(response.data)
         }).catch(err=>{
             console.log(err);
-            dispatch(on_auth_fail(err.response.data.error))
+            dispatch(auth_fail(err.response.data.error))
         })
         
     }

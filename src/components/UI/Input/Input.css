@@ -2,23 +2,26 @@
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
+    
 }
 
 .Label {
     font-weight: bold;
     display: block;
     margin-bottom: 8px;
+    text-transform: capitalize;
 }
 
 .InputElement {
     outline: none;
     border: 1px solid #ccc;
-    background-color: white;
     font: inherit;
     padding: 6px 10px;
     display: block;
     width: 100%;
     box-sizing: border-box;
+    border-radius: 5px;
+    background-color: #F5F5F5
 }
 
 .InputElement:focus {
