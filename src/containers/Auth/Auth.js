@@ -4,6 +4,7 @@ import Input from '../../components/UI/Input/Input';
 import classes from './Auth.css';
 import {connect} from 'react-redux';
 import {checkValidity} from '../../shared/utility';
+import * as action from '../../store/actions/index'; 
 class Auth extends Component {
     
     state = {
@@ -96,7 +97,7 @@ class Auth extends Component {
                 touched:false
             },
 
-            confirmPassword:{
+            /*confirmPassword:{
                 elementType:'input',
                 elementConfig:{
                     type:'password',
@@ -110,7 +111,7 @@ class Auth extends Component {
                 valid:false,
                 touched:false
             },
-           /*state: {
+           state: {
                 elementType: 'select',
                 elementConfig: {
                     options: [
@@ -135,8 +136,9 @@ class Auth extends Component {
                 valid: true
             }
 */
-
         },
+
+        formIsValid: false,
 
     }
     inputChangedHandler = (event,controlName) => {
@@ -172,9 +174,37 @@ class Auth extends Component {
             this.setState({
                 registerControl:updatedControls
             })
+            
         }
 
     }
+    submitHandler = (event) => {
+
+        event.preventDefault();
+
+        if(this.props.clickedElement === 'login'){
+            const loginFormValues = {
+                'type':'login',
+                'email':this.state.loginControl.email.value,
+                'password':this.state.loginControl.password.value
+            }
+            this.props.onAuth(loginFormValues)
+        }
+        
+        if(this.props.clickedElement === 'signup'){
+            console.log('register')
+            const registerFormValues = {
+                'type':'signup',
+                'email':this.state.registerControl.email.value,
+                'phone':this.state.registerControl.phone.value,
+                'password':this.state.registerControl.password.value,
+                'name':this.state.registerControl.name.value
+            }
+            this.props.onAuth(registerFormValues)
+        }
+        
+    }
+
     render(){
         const loginElementArray = [];
         const registerElementArray = [];
@@ -229,7 +259,7 @@ class Auth extends Component {
             <div className={classes.Auth}>
                 <form onSubmit={this.submitHandler}>
                     {form}
-                <Button btnType="Success">{this.props.clickedElement}</Button>
+                <Button btnType="Login_SignUp">{this.props.clickedElement}</Button>
 
                 </form>
             </div>
@@ -247,4 +277,10 @@ const mapStateToProps = state => {
         modalState:state.modalState
     }       
 }
-export default connect(mapStateToProps)(Auth)
+
+const mapDisptachToProps = dispatch => {
+    return{
+        onAuth:(data)=>dispatch(action.auth(data))
+    }
+}
+export default connect(mapStateToProps,mapDisptachToProps)(Auth)

@@ -30,6 +30,14 @@
 
 }
 
+.Login_SignUp {
+    color:black;
+    border:1px solid orange;
+    background-color: orange;
+    border-radius: 5px;
+    
+}
+
 .Warning {
     color:skyblue;
 }

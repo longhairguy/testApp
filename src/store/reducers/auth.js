@@ -1,7 +1,8 @@
 import * as actionType from '../actions/actionTypes';
 
 const initialState = {
-    modalState:false
+    error:false,
+    token:null
 }
 
 const authStart = (state,action) => {
