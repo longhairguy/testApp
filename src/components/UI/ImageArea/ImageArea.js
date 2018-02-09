@@ -126,7 +126,7 @@ const imageArea = (props) => {
               <img src={AppImage}/>
 
             </div>
-            <div>
+            <div className={classes.tableDiv}>
               <table>
                 <tbody>
                   <tr>

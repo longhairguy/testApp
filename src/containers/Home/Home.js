@@ -6,7 +6,7 @@ import NavLayout from '../../hoc/NavLayout/NavLayout';
 import ImageArea from '../../components/UI/ImageArea/ImageArea';
 import {connect} from 'react-redux'; 
 import * as actions from '../../store/actions/index';
-
+import Auth from '../Auth/Auth';
 class Home extends Component {
 
     render () {
@@ -15,7 +15,9 @@ class Home extends Component {
                 <NavLayout />
                 <ImageArea />
                 
-                    <Modal show={this.props.modalState} modalClosed={this.props.onModalClosed}>{this.props.name}</Modal>
+                    <Modal show={this.props.modalState} modalClosed={this.props.onModalClosed}>
+                        {this.props.modalState?<Auth/>:null}
+                    </Modal>
                 
             </div>
 

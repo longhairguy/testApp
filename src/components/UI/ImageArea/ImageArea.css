@@ -93,20 +93,19 @@
 .footer_left img {
     width: 40%;
     height: auto;
-    position: relative;
-    left:31%;
+    margin-left:29%;
+
 }
-.footer_right i{
-    margin:10px;
+
+.footer_right {
+    width: 60%;
+    height: auto;
 }
 .footer_right div img {
-    position: relative;
-    left: 6%;
+    margin-left:10%;
 }
-.footer_right td {
-    padding: 2%;
-    position: relative;
-    left:12%;
+.tableDiv{
+    margin-left: 30%;
 }
 @media only screen and (min-width:480px){
     .ImageArea {
