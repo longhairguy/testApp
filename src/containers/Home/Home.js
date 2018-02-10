@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import classes from './Home.css';
 import Modal from '../../components/UI/Modal/Modal';
 import NavLayout from '../../hoc/NavLayout/NavLayout';
-import ImageArea from '../../components/UI/ImageArea/ImageArea';
+import Homepagebody from '../../components/UI/Homepagebody/Homepagebody';
 import {connect} from 'react-redux'; 
 import * as actions from '../../store/actions/index';
 import Auth from '../Auth/Auth';
@@ -13,7 +13,7 @@ class Home extends Component {
         return (
             <div className={classes.Home}>
                 <NavLayout />
-                <ImageArea />
+                <Homepagebody />
                 
                 
                     <Modal show={this.props.modalState && !this.props.loggedIn} modalClosed={this.props.onModalClosed}>

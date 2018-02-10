@@ -1,12 +1,12 @@
 import React from 'react';
-import classes from './ImageArea.css';
+import classes from './Homepagebody.css';
 import card_1  from '../../../assets/card_1.png';
 import card_2  from '../../../assets/card_2.png';
 import card_3  from '../../../assets/card_3.png';
 import logo from '../../../assets/logo.png';
 import Background from '../../../assets/landing.png';
 import AppImage from '../../../assets/ios-android.png';
-const imageArea = (props) => {
+const homepagebody = (props) => {
   const setStyle = {
     backgroundImage: "url(" + Background + ")",
     backgroundSize:"cover",
@@ -44,7 +44,7 @@ const imageArea = (props) => {
 
     <h1 style={{'textAlign':'center'}}>Key Features</h1>
     <hr />
-    <div className={classes.ImageArea}>
+    <div className={classes.Homepagebody}>
         <div className={classes.box2}>
              <h3>Box 1</h3>
              <img src={card_1} alt="card_area" />
@@ -149,4 +149,4 @@ const imageArea = (props) => {
     </div>)
 };
 
-export default imageArea;
+export default homepagebody;
