@@ -78,7 +78,8 @@ class Auth extends Component {
                 value:'',
                 validation: {
                     required:true,
-                    isPhone:true
+                    isNumeric:true,
+                    fixedLength:10
                 },
                 valid:false,
                 touched:false
@@ -144,7 +145,6 @@ class Auth extends Component {
     }
 
 
-
     inputChangedHandler = (event,controlName) => {
 
         if(this.props.clickedElement === 'login') {
@@ -157,12 +157,15 @@ class Auth extends Component {
                     touched:true
                 }
             };
-            if(this.props.modalState){
-
+            
                 this.setState({
                     loginControl:updatedControls
                 })
+            let formIsValid = true;
+            for(let key in updatedControls){
+                formIsValid = updatedControls[key].valid && formIsValid; 
             }
+            this.setState({formIsValid:formIsValid})
         }
         else if(this.props.clickedElement === 'signup'){
 
@@ -178,6 +181,12 @@ class Auth extends Component {
             this.setState({
                 registerControl:updatedControls
             })
+
+            let formIsValid = true;
+            for(let key in updatedControls){
+                formIsValid = updatedControls[key].valid && formIsValid; 
+            }
+            this.setState({formIsValid:formIsValid})
             
         }
 
@@ -274,7 +283,7 @@ class Auth extends Component {
                 <form onSubmit={this.submitHandler}>
                     {form}
                 
-                {!this.props.loading?<Button btnType="Login_SignUp">&nbsp;{this.props.clickedElement}</Button>:null}                
+                {!this.props.loading?<Button btnType="Login_SignUp" disabled={!this.state.formIsValid}>&nbsp;{this.props.clickedElement}</Button>:null}                
                 </form>
             </div>
 

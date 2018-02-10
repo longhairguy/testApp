@@ -25,6 +25,8 @@ export const checkValidity = (value, rules) => {
         const pattern = /^\d+$/;
         isValid = pattern.test(value) && isValid
     }
-
+    if (rules.fixedLength) {
+        isValid = value.length === rules.fixedLength && isValid
+    }
     return isValid;
 }
