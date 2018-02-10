@@ -7,8 +7,7 @@ class Logout extends Component {
         this.props.onLogout()
     }
     render(){
-        console.log('from logout')
-
+       
         return(
             <Redirect to="/" />
         );

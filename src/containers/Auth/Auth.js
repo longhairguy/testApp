@@ -6,6 +6,7 @@ import {connect} from 'react-redux';
 import {checkValidity} from '../../shared/utility';
 import * as action from '../../store/actions/index'; 
 import Spinner from '../../components/UI/Spinner/Spinner';
+import { Redirect } from 'react-router';
 class Auth extends Component {
     
     state = {
@@ -285,6 +286,7 @@ class Auth extends Component {
                 
                 {!this.props.loading?<Button btnType="Login_SignUp" disabled={!this.state.formIsValid}>&nbsp;{this.props.clickedElement}</Button>:null}                
                 </form>
+                {this.props.loggedIn?<Redirect to="/select-test"/>:null}
             </div>
 
         )
