@@ -20,15 +20,15 @@ const homepagebody = (props) => {
     <div className={classes.left_box}>
       <h2>Heyo ! <span style={{color:'orange'}}>Friends</span></h2>
       <p>
-                  We are here for you to enhance your prepration process for SSC exams.
-                  What we can provide is quite diverse and yeah its Totally FREE !
-                  We provide you various things raning from test series,sample questions
-                  chapter wise as well in depth analysis.
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                  Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,
                  when an unknown prindustrys standard dummy text ever since the 1500s,
                  when an unknown printer took a galley of type and scrambled it to make a
                  type specimen bookinter took a galley of type and scrambled it to make a
+                 Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,
+                 when an unknown prindustrys standard dummy text ever since the 1500s,
+                 when an unknown printer took a galley of type and scrambled it to make a
+                 type specimen bookinter took a galley of type and scrambled it to make a
+                
                  type specimen book.
                  Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                  Lorem Ipsum has been the industrys standard dummy text ever since the 1500s,
