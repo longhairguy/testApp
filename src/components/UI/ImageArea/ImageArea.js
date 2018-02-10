@@ -88,7 +88,7 @@ const imageArea = (props) => {
 
     <div className={classes.footer}>
       <div className={classes.footer_left}>
-            <img src={logo} />
+            <img src={logo} alt="LogoImg"/>
             <br />
             <br />
             <br />
@@ -123,7 +123,7 @@ const imageArea = (props) => {
       </div>
       <div className={classes.footer_right}>
             <div>
-              <img src={AppImage}/>
+              <img src={AppImage} alt="logoImg"/>
 
             </div>
             <div className={classes.tableDiv}>

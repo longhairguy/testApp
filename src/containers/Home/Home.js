@@ -7,7 +7,6 @@ import ImageArea from '../../components/UI/ImageArea/ImageArea';
 import {connect} from 'react-redux'; 
 import * as actions from '../../store/actions/index';
 import Auth from '../Auth/Auth';
-import Spinner from '../../components/UI/Spinner/Spinner';
 class Home extends Component {
 
     render () {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Redirect,Route,withRouter,Switch} from 'react-router-dom';
+import {Route,withRouter,Switch} from 'react-router-dom';
 import './App.css';
 import Home from './containers/Home/Home';
 import {connect} from 'react-redux';

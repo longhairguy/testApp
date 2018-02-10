@@ -6,7 +6,6 @@ import {connect} from 'react-redux';
 import {checkValidity} from '../../shared/utility';
 import * as action from '../../store/actions/index'; 
 import Spinner from '../../components/UI/Spinner/Spinner';
-import {Redirect} from 'react-router-dom';
 class Auth extends Component {
     
     state = {

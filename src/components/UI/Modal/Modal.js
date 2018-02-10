@@ -15,7 +15,6 @@ class Modal extends Component {
     }
 
     render () {
-        let translateY = null;
         return (
             <Aux>
                 <Backdrop show={this.props.show} clicked={this.props.modalClosed} />

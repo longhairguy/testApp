@@ -2,7 +2,6 @@ import * as actionType from '../actions/actionTypes';
 
 const initialState = {
     error:false,
-    token:null,
     loading:false,
     loggedIn:false,
     authRedirect:'/',
@@ -15,7 +14,7 @@ const onAuthStart = (state,action) => {
     return {
         ...state,
         error:action.error,
-        loading:true
+        loading:true,
     }
 }
 

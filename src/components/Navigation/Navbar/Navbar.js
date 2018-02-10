@@ -8,8 +8,6 @@ import {connect} from 'react-redux';
 import DropDownItems from '../DropdownItems/DropdownItems';
 class Navbar extends Component{
     render(){
-        console.log('from nav',this.props.isAuthenticated)
-        console.log('from nav',this.props.token)
         return (
             <header className={classes.Navbar}>
                 <DrawerToggle clicked={this.props.drawerToggleClicked} />
