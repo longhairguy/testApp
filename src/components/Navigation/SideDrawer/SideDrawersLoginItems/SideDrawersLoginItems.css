@@ -1,0 +1,10 @@
+.SideDrawerLoginItems ul {
+    list-style-type: none;
+    margin-top:20%;
+    padding: 10%;
+    width: 200px;
+    background-color: transparent;
+    z-index: 500;
+    box-sizing: border-box;
+
+}
