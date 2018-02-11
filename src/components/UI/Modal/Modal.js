@@ -24,6 +24,7 @@ class Modal extends Component {
                         transform: this.props.show ? 'translateY(0)' : 'translateY(100vh)',
                         opacity: this.props.show ? '1' : '0'
                     }}>
+                    {this.props.message!==null?<h3>{this.props.message}</h3>:null}
                     {this.props.children}
                 </div>
             </Aux>

@@ -12,12 +12,18 @@ class Home extends Component {
             this.props.getTest()    
     }*/
     render () {
+        console.log('er',this.props.error)
         return (
             <div className={classes.Home}>
                 <NavLayout />
                 <Homepagebody />
-                    <Modal show={this.props.modalState && !this.props.loggedIn} modalClosed={this.props.onModalClosed}>
-                        {this.props.modalState?<Auth/>:null}
+                    <Modal 
+                        show={this.props.modalState && !this.props.loggedIn} 
+                        modalClosed={this.props.onModalClosed}
+                        message={this.props.error!==null?this.props.error.message:null}
+                        >
+                        
+                        {this.props.modalState ?<Auth/>:null}
                     </Modal>
                 
             </div>
@@ -32,7 +38,8 @@ const mapStateToProps = state => {
  return {
     name:state.modal.name,
     modalState:state.modal.modalState,
-    loggedIn:state.auth.loggedIn
+    loggedIn:state.auth.loggedIn,
+    error:state.auth.error
  }   
 }
 
