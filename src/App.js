@@ -11,15 +11,27 @@ class App extends Component {
     this.props.onTryAutoSignup();
   }
   render() {
-    
-    return (
-      <div className="App">
+    let router = null;
+    if(this.props.isAuthenticated){
+      router = (
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/logout" exact component={Logout} />
           <Route path="/select-test" exact component={SelectTest} />
 
         </Switch>
+      )
+    }
+    else{
+      router = (
+        <Switch>
+          <Route path="/" exact component={Home} />
+        </Switch>
+      )
+    }
+    return (
+      <div className="App">
+        {router}
       </div>  
     );
   }

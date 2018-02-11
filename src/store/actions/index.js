@@ -10,3 +10,7 @@ export {
     authCheckState,
     setAuthRedirectPath
 } from './auth';
+
+export {
+    getTest
+} from  './selectTest';

@@ -1,6 +1,7 @@
 
 import * as actionType from '../actions/actionTypes';
 import {modal_stop} from './home';
+import {getTest} from './selectTest';
 import axios from 'axios';
 
 export const auth_start= () => {
@@ -10,8 +11,15 @@ export const auth_start= () => {
     }
 }
 
+export const auth_success_middleware = (idToken,userId) => {
+    return dispatch => {
+        dispatch(auth_success(idToken,userId))
+        dispatch(getTest())
+        
+    }
+}
+
 export const auth_success= (idToken,userId) => {
-    
     return {
         type:actionType.AUTH_SUCCESS,
         idToken:idToken,
@@ -48,7 +56,6 @@ export const checkAuthTimeout = (expirationTime) => {
 export const auth = (data) => {
     return dispatch => {
         dispatch(auth_start());
-        
         let funcType = data.type
         let authData = null;
         let url = null;
@@ -76,8 +83,9 @@ export const auth = (data) => {
             localStorage.setItem('token',response.data.idToken)
             localStorage.setItem('userId',response.data.localId)
             localStorage.setItem('expirationDate',response.data.expiresIn)
-            dispatch(auth_success(response.data.idToken,response.data.localId))
+            dispatch(auth_success_middleware(response.data.idToken,response.data.localId))
             dispatch(modal_stop())
+            
             
         }).catch(err=>{
             dispatch(auth_fail(err.response.data.error))
@@ -106,7 +114,7 @@ export const authCheckState = () => {
                 dispatch(logout());
             } else {
                 const userId = localStorage.getItem('userId');
-                dispatch(auth_success(token, userId));
+                dispatch(auth_success_middleware(token, userId));
                 //dispatch(checkAuthTimeout((expirationDate.getTime() - new Date().getTime()) / 1000 ));
             }   
         }

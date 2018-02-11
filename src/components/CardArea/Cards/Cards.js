@@ -1,5 +1,37 @@
 import React from 'react';
 import Card from './Card/Card';
+import classes from './Cards.css';
+import Aux from '../../../hoc/Aux/Aux';
+const cards = (props) => {
+    const testTypeData = props.testTypes;
+    let testTypeDataArray = []
+    let cards = null;
+    for(let key in testTypeData){
+        testTypeDataArray.push(testTypeData[key])
+    }
+    console.log(testTypeDataArray)
+    cards = (<Aux>
+        {testTypeDataArray.map(data=>{
+        return <Card 
+        imageUrl={data.imageUrl}
+        heading={data.heading}
+        description={data.description} 
+        forwardUrl={data.forwardUrl}/>}
+         )
+    }
+    </Aux>
+    )
+    return (
+        <div className={classes.Cards}>
+        {cards}
+        </div>
+    )
+}
+export default cards;
+
+/*
+import React from 'react';
+import Card from './Card/Card';
 import Aux from '../../../hoc/Aux/Aux';
 import classes from './Cards.css';
 const cards = (props) => (
@@ -11,4 +43,5 @@ const cards = (props) => (
     </div>
 )
 
-export default cards
+export default cards;
+*/

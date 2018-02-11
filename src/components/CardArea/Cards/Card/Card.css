@@ -38,7 +38,8 @@
     font-weight: lighter;
     overflow: hidden;
     box-sizing: border-box;
-    padding:0% 10% 0% 10%; 
+    padding-left:10%;
+    padding-right: 10%; 
 }
 .Info button {
   float: right;
@@ -80,9 +81,10 @@
     .baseCard p {
         width: 100%;
         height: auto;
+        box-sizing: border-box;
     }
-    .Info h1 {
-        margin: 0 0 0 33%;
+    .Info h3 {
+        margin: 0 0 0 20%;
         padding-top: 10%;
         color: #474747;
     }
@@ -91,11 +93,11 @@
         font-family: 'Playfair Display', serif;
         color: black;
         line-height: 1.7em;
-        font-size: 16px;
+        font-size: 12px;
         font-weight: lighter;
         overflow: hidden;
-        box-sizing: border-box;
-        padding:0% 10% 0% 10%; 
+        box-sizing: border-box; 
+        /*height: 60%;*/
     }
     .Info button {
       float: right;

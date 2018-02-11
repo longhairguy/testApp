@@ -8,14 +8,14 @@ import {connect} from 'react-redux';
 import * as actions from '../../store/actions/index';
 import Auth from '../Auth/Auth';
 class Home extends Component {
-
+    /*componentDidMount(){
+            this.props.getTest()    
+    }*/
     render () {
         return (
             <div className={classes.Home}>
                 <NavLayout />
                 <Homepagebody />
-                
-                
                     <Modal show={this.props.modalState && !this.props.loggedIn} modalClosed={this.props.onModalClosed}>
                         {this.props.modalState?<Auth/>:null}
                     </Modal>
@@ -38,7 +38,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        onModalClosed:()=>dispatch(actions.modal_stop())
+        onModalClosed:()=>dispatch(actions.modal_stop()),
+        //getTest:()=>dispatch(actions.getTest())
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(Home);
