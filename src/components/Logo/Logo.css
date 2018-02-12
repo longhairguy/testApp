@@ -6,4 +6,9 @@
 
 .Logo img {
     height: 100%;
+    transition: transform 1s;
+}
+
+.Logo img:hover {
+    transform: rotate(360deg)
 }

@@ -1,9 +1,10 @@
 import React from 'react';
 import logoImg from '../../assets/logo.png';
 import classes from './Logo.css';
+import {Link} from 'react-router-dom';
 const logo = (props) => (
     <div className={classes.Logo}>
-        <img src={logoImg} alt="bestTest"/>
+        <Link to="/" exact><img src={logoImg} alt="bestTest"/></Link>
     </div>
 );
 

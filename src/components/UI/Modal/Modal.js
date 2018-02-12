@@ -18,7 +18,18 @@ class Modal extends Component {
 
     }
     render () {
-        
+        let error = null;
+        /*const makeErrorGo = () => {
+            setTimeout(()=>{
+                console.log('yo')
+                error=null
+            },5000)
+        }*/
+        if(this.props.message!==undefined){
+            error =(<h3 className={classes.errorMessage}>
+                {this.props.message}</h3>)
+            //makeErrorGo()
+        }
         return (
             <Aux>
                 <Backdrop show={this.props.show} clicked={this.props.modalClosed} />
@@ -28,9 +39,7 @@ class Modal extends Component {
                         transform: this.props.show ? 'translateY(0)' : 'translateY(100vh)',
                         opacity: this.props.show ? '1' : '0'
                     }}>
-                    {this.props.message!==null?<h3 style=
-                    {{"color":"white","backgroundColor":"orange","textAlign":"center",}}>
-                    {this.props.message}</h3>:null}
+                    {error}
                     
                     {this.props.children}
                 </div>

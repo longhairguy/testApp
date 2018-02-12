@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import classes from './SelectTest.css';
 import NavLayout from '../../hoc/NavLayout/NavLayout';
 import Cards from '../../components/CardArea/Cards/Cards';
-import * as action from '../../store/actions/index';
 import {connect} from 'react-redux';
 import Spinner from '../../components/UI/Spinner/Spinner';
 class SelectTest extends Component {

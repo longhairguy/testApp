@@ -12,7 +12,12 @@
     transition: all 0.3s ease-out;
     border-radius: 8px;
 }
-
+.errorMessage{
+    color:white;
+    background-color:orange;
+    text-align:center;
+    
+}
 
 @media (min-width: 600px) {
     .Modal {

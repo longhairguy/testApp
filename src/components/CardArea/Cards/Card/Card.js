@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 const card = (props) => (
         <div className={classes.baseCard}>
             <div>
-                <img src={props.imageUrl} />
+                <img src={props.imageUrl} alt="test-type-img"/>
             </div>
             <div className={classes.Info}>
                 <h3>{props.heading}</h3>

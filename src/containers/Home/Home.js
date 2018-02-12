@@ -12,7 +12,6 @@ class Home extends Component {
             this.props.getTest()    
     }*/
     render () {
-        console.log('er',this.props.error)
         return (
             <div className={classes.Home}>
                 <NavLayout />

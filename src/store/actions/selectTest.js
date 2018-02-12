@@ -11,7 +11,7 @@ export const get_test_type = (data) => {
 export const getTest = () =>{
     return dispatch=>{
         axios.get("https://testseries-57ff0.firebaseio.com/TestTypes.json").then(response=>{
-            console.log(response)
+            //console.log(response)
             dispatch(get_test_type(response.data))
         }).catch(err=>{
             console.log(err)
