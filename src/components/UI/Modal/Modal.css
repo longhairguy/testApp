@@ -13,9 +13,14 @@
     border-radius: 8px;
 }
 
+
 @media (min-width: 600px) {
     .Modal {
         width: 500px;
         left: calc(50% - 250px);
     }
+    .modalError{
+    
+    }
+    
 }

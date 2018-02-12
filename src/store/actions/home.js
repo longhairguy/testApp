@@ -12,3 +12,9 @@ export const modal_stop = () => {
         type:actionType.MODAL_STOP
     }
 }
+
+export const clear_error_message = () => {
+    return {
+        type:actionType.CLEAR_ERROR_MESSAGE
+    }
+}

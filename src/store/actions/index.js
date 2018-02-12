@@ -1,14 +1,14 @@
 export {
     modal_start,
     modal_stop,
-    
 } from './home';
 
 export {
     auth,
     logout,
     authCheckState,
-    setAuthRedirectPath
+    setAuthRedirectPath,
+    clear_error_message
 } from './auth';
 
 export {

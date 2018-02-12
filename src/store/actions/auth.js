@@ -102,6 +102,11 @@ export const setAuthRedirectPath = (path) => {
     };
 };
 
+export const clear_error_message = () => {
+    return {
+        type:actionType.CLEAR_ERROR_MESSAGE
+    }
+}
 
 export const authCheckState = () => {
     return dispatch => {

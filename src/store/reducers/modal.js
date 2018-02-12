@@ -20,6 +20,7 @@ const modalStop = (state,action) => {
 }
 
 
+
 const reducers = (state=initialState,action) => {
     switch(action.type){
         case actionType.MODAL_START:return modalStart(state,action)

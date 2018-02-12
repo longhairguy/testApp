@@ -52,6 +52,12 @@ const setAuthRedirectPath = (state, action) => {
      }
 }
 
+const clearErrorMessage = (state,action) => {
+    return {
+        ...state,
+        error:false
+    }
+}
 
 const reducers = (state=initialState,action) => {
     switch(action.type){
@@ -60,6 +66,7 @@ const reducers = (state=initialState,action) => {
         case actionType.AUTH_FAIL:return onAuthFail(state,action)
         case actionType.AUTH_LOGOUT:return onLogout(state,action)
         case actionType.SET_AUTH_REDIRECT_PATH:return setAuthRedirectPath(state,action)
+        case actionType.CLEAR_ERROR_MESSAGE:return clearErrorMessage(state,action)
         default:return state
     }
 }
