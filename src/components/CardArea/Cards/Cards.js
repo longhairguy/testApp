@@ -9,7 +9,6 @@ const cards = (props) => {
     for(let key in testTypeData){
         testTypeDataArray.push({...testTypeData[key],"id":key})
     }
-    console.log(testTypeDataArray)
     cards = (<Aux>
         {testTypeDataArray.map(data=>{
         return <Card 
@@ -17,7 +16,8 @@ const cards = (props) => {
         key={data.id}
         heading={data.heading}
         description={data.description} 
-        forwardUrl={data.forwardUrl}/>}
+        forwardUrl={data.forwardUrl}
+        buttonValue={props.buttonValue}/>}
          )
     }
     </Aux>

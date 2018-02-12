@@ -13,7 +13,7 @@ class SelectTest extends Component {
                 <NavLayout />
                 <h1 style={{"textAlign":"center"}}>Select Your Path <i className="fa fa-arrow-circle-down"></i></h1>
                 
-                {this.props.testTypes!==null?<Cards testTypes={this.props.testTypes}/>:<Spinner />}
+                {this.props.testTypes!==null?<Cards testTypes={this.props.testTypes} buttonValue="Select"/>:<Spinner />}
             </div>
 
         )

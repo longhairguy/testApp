@@ -6,6 +6,7 @@ import {connect} from 'react-redux';
 import Logout from './containers/Auth/Logout/Logout';
 import SelectTest from './containers/SelectTest/SelectTest';
 import * as actions from './store/actions/index';
+import PractiseTest from './containers/PractiseTest/PractiseTest';
 class App extends Component {
   componentDidMount () {
     this.props.onTryAutoSignup();
@@ -18,7 +19,8 @@ class App extends Component {
           <Route path="/" exact component={Home} />
           <Route path="/logout" exact component={Logout} />
           <Route path="/select-test" exact component={SelectTest} />
-
+          <Route path="/practise-test" exact component={PractiseTest} />
+          
         </Switch>
       )
     }

@@ -9,7 +9,7 @@ const card = (props) => (
             <div className={classes.Info}>
                 <h3>{props.heading}</h3>
                 <p>{props.description}</p>
-                <Link to={props.forwardUrl}><button type="button">Select</button></Link>
+                <Link to={props.forwardUrl}><button type="button">{props.buttonValue}</button></Link>
             </div>
         </div>
    
