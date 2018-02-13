@@ -2,33 +2,53 @@ import React from 'react';
 import Card from './Card/Card';
 import classes from './Cards.css';
 import Aux from '../../../hoc/Aux/Aux';
+import {withRouter} from 'react-router';
 const cards = (props) => {
+  console.log('props',props)
     const testTypeData = props.testTypes;
     let testTypeDataArray = []
     let cards = null;
     for(let key in testTypeData){
         testTypeDataArray.push({...testTypeData[key],"id":key})
     }
-    cards = (<Aux>
-        {testTypeDataArray.map(data=>{
-        return <Card 
-        imageUrl={data.imageUrl}
-        key={data.id}
-        heading={data.heading}
-        description={data.description} 
-        forwardUrl={data.forwardUrl}
-        buttonValue={props.buttonValue}/>}
-         )
+    if(props.match.url === "/select-test"){
+      cards = (<Aux>
+          {testTypeDataArray.map(data=>{
+          return <Card
+          imageUrl={data.imageUrl}
+          key={data.id}
+          heading={data.heading}
+          description={data.description}
+          forwardUrl={data.forwardUrl}
+          buttonValue={props.buttonValue}/>}
+           )
+      }
+      </Aux>
+      )
     }
-    </Aux>
-    )
+    else{
+
+      cards = (<Aux>
+          {testTypeDataArray.map(data=>{
+          return <Card
+          imageUrl={data.imageUrl}
+          key={data.id}
+          heading={data.heading}
+          description={data.description}
+          forwardUrl={data.forwardUrl+data.subject}
+          buttonValue={props.buttonValue}/>}
+           )
+      }
+      </Aux>
+      )
+    }
     return (
         <div className={classes.Cards}>
         {cards}
         </div>
     )
 }
-export default cards;
+export default withRouter(cards);
 
 /*
 import React from 'react';

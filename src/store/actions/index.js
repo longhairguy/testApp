@@ -14,3 +14,7 @@ export {
 export {
     getTest
 } from  './selectTest';
+
+export {
+  questions
+} from './questions';
