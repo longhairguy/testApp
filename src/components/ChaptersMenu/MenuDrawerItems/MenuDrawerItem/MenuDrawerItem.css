@@ -1,0 +1,33 @@
+.MenuDrawerItem {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 6%;
+    background-color: transparent;
+    text-align: center;
+
+    border-bottom:1px dashed #ccc;
+    z-index: 550;
+}
+
+.MenuDrawerItem:hover {
+
+    background-color: 	#F8F8F8;
+    
+}
+.MenuDrawerItem a {
+    color: rgb(70, 69, 69);
+    text-decoration: none;
+    width: 100%;
+    display: block;
+    font-size: 1rem;
+
+}
+
+/*.MenuDrawerItem a:hover,
+.MenuDrawerItem a:active,
+.MenuDrawerItem a.active {
+    color: #40A4C8;
+}*/
+

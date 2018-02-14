@@ -22,7 +22,12 @@
 }
 
 .Success {
-    color: #5C9210;
+    color: #3399CC;
+    border: 1px solid #3399CC;
+}
+.Success:hover{
+    background-color:#BDFCC9	;
+    color:black
 }
 
 .Danger {
@@ -39,7 +44,12 @@
 }
 
 .Warning {
-    color:skyblue;
+    color:orange;
+    border: 1px solid orange;
+}
+.Warning:hover {
+    background-color: orange;
+    color:black
 }
 
 .Primary {

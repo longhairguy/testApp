@@ -12,7 +12,7 @@ class sideDrawer extends Component {
         if(this.props.open){
             attachedClasses = [classes.SideDrawer,classes.Open];
         }
-    
+
         return (
             <Aux>
                 <Backdrop show={this.props.open} clicked={this.props.closed}/>
@@ -26,9 +26,9 @@ class sideDrawer extends Component {
                 </div>
             </Aux>
         )
-        
+
     }
-    
+
 }
 
 const mapStateToProps = state => {
