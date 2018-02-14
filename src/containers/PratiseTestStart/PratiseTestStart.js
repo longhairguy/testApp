@@ -27,9 +27,12 @@ class PratiseTestStart extends Component {
     
     return(
       <div>
-        <Toggler clicked={this.sideDrawerToggleHandler} />
-        <QuestionArea className={classes.QuestionArea}/>
-        <ChaptersMenu open={this.state.showSideDrawer} closed={this.sideDrawerClosedHandler}/>
+          <div>
+            <Toggler clicked={this.sideDrawerToggleHandler} />
+            
+          </div>
+          <QuestionArea className={classes.QuestionArea}/>
+          <ChaptersMenu open={this.state.showSideDrawer} closed={this.sideDrawerClosedHandler}/>
         
       </div>
     )
