@@ -2,7 +2,9 @@ import React,{Component} from 'react';
 import classes from './QuestionArea.css'
 import Button from '../UI/Button/Button'
 import Modal from '../UI/Modal/Modal';
+import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
+import Spinner from '../UI/Spinner/Spinner';
 class QuestionArea extends Component {
     state = {
         closeClicked:false
@@ -14,8 +16,20 @@ class QuestionArea extends Component {
         
     }
     render(){
-
-        
+        let question = null;
+        let options = <Spinner />;
+        if(this.props.question){
+        question = this.props.question.question
+        options = this.props.question.options.map(option=>{
+            return (
+                <label className={classes.container} key={this.props.question.options.indexOf(option)}>
+                <span className={classes.option}>{option}</span>
+                    <input type="radio" name="radio"/>
+                    <span className={classes.checkmark}></span>
+                </label>
+               
+            )
+        })        }
         return (
             <div className={classes.QuestionArea}>
                 <div className={classes.Question}>
@@ -33,31 +47,9 @@ class QuestionArea extends Component {
                         </div>
                     </Modal>
 
-                    <h3> Mrudul invested an amount of Rs. 29500 in order to start a business. Shalaka joined her 4 months later by investing an amount of Rs. 33500. If the business earned a profit of Rs. 120575 at the end of two years,
-                        what was Mrudul’s share of the profit?
-                    </h3>
+                    <h3 style={{"marginLeft":"3%"}}> {question}</h3>
                     <form>
-                        <label className={classes.container}>
-                        <span className={classes.option}>Rs. 60725</span>
-                            <input type="radio" name="radio"/>
-                            <span className={classes.checkmark}></span>
-                        </label>
-                        <label className={classes.container}>
-                        <span className={classes.option}>Rs. 60725</span>
-                            <input type="radio" name="radio"/>
-                            <span className={classes.checkmark}></span>
-                        </label>
-                        <label className={classes.container}>
-                        <span className={classes.option}>Rs. 60725</span>
-                            <input type="radio" name="radio"/>
-                            <span className={classes.checkmark}></span>
-                        </label>
-                        <label className={classes.container}>
-                        <span className={classes.option}>Rs. 60725</span>
-                            <input type="radio" name="radio"/>
-                            <span className={classes.checkmark}></span>
-                        </label>
-                            
+                            {options}
                         <br/>
                         <div style={{"marginLeft":"35%"}}>
                         <Button btnType="Success"> &nbsp;Submit</Button>
@@ -70,4 +62,6 @@ class QuestionArea extends Component {
     }
 }
 
-export default QuestionArea;
+
+
+export default (QuestionArea);

@@ -16,5 +16,6 @@ export {
 } from  './selectTest';
 
 export {
-  questions
+  questions,
+  chapters
 } from './questions';

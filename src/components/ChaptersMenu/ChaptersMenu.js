@@ -2,13 +2,17 @@ import React,{Component} from 'react';
 import classes from './ChaptersMenu.css';
 import Aux from '../../hoc/Aux/Aux';
 import Backdrop from '../UI/Backdrop/Backdrop';
+import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
-import NavigationItems from '../Navigation/NavigationItems/NavigationItems';
-import DropdownItems from '../Navigation/DropdownItems/DropdownItems';
 import MenuDrawerItems from './MenuDrawerItems/MenuDrawerItems';
+import * as action from '../../store/actions/index';
 class ChapterMenu extends Component {
+    subjectName = this.props.match.params.subject
+    componentDidMount(){
+        this.props.getChapters(this.subjectName)
+        
+    }
     render(){
-        console.log(this.props.isAuthenticated)
         let attachedClasses = [classes.ChapterssMenu,classes.Close];
         if(this.props.open){
             attachedClasses = [classes.ChaptersMenu,classes.Open];
@@ -18,7 +22,7 @@ class ChapterMenu extends Component {
             <Aux>
                 <Backdrop show={this.props.open} clicked={this.props.closed}/>
                 <div className={attachedClasses.join(' ')} onClick = {this.props.closed}>
-                    <MenuDrawerItems/>
+                    <MenuDrawerItems chapters={this.props.chapters}/>
                     
                 </div>
             </Aux>
@@ -31,8 +35,15 @@ class ChapterMenu extends Component {
 const mapStateToProps = state => {
     return {
         isAuthenticated:state.auth.token !== null,
-        token:state.auth.token
+        token:state.auth.token,
+        chapters:state.questions.chapters
     }
 }
 
-export default connect(mapStateToProps)(ChapterMenu);
+const mapDispatchToProps = dispatch => {
+    return {
+        getChapters:(chapterName)=>dispatch(action.chapters(chapterName))
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(withRouter(ChapterMenu));

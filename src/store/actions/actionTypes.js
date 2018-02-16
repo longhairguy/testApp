@@ -14,3 +14,4 @@ export const CLEAR_ERROR_MESSAGE = 'CLEAR_ERROR_MESSAGE';
 
 
 export const GET_QUESTIONS = 'GET_QUESTIONS';
+export const GET_CHAPTERS = 'GET_CHAPTERS';

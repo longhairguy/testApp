@@ -9,13 +9,15 @@ import registerServiceWorker from './registerServiceWorker';
 import modalReducer from './store/reducers/modal';
 import authReducer from './store/reducers/auth';
 import selectTestReducer from './store/reducers/selectTest';
+import questionsReducer from './store/reducers/questions';
 import thunk from 'redux-thunk';
 const composeEnhancers = process.env.NODE_ENV === 'development'?window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose:null;
 
 const rootReducer = combineReducers({
   auth:authReducer,
   modal:modalReducer,
-  selectTest:selectTestReducer
+  selectTest:selectTestReducer,
+  questions:questionsReducer,
 })
 const store = createStore(rootReducer,composeEnhancers(applyMiddleware(thunk)));
 

@@ -21,7 +21,7 @@ class App extends Component {
           <Route path="/logout" exact component={Logout} />
           <Route path="/select-test" exact component={SelectTest} />
           <Route path="/practise-test" exact component={PractiseTest} />
-          <Route path="/pratise-test/:subject" exact component={PractiseTestStart} />
+          <Route path="/pratise-test/:subject/:chapter/:question" exact component={PractiseTestStart} />
 
         </Switch>
       )

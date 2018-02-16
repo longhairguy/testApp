@@ -9,7 +9,7 @@ class MenuDrawerItem extends Component {
       return (
         
           <li className={classes.MenuDrawerItem}>
-              <Link to="">{this.props.children}</Link>
+              <Link to={this.props.url}>{this.props.children}</Link>
           </li>
         
         
