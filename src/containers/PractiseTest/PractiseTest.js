@@ -12,7 +12,7 @@ class PractiseTest extends Component {
                 "heading":"Quantitative Apt",
                 "subject":"Quantitative",
                 "imageUrl":"http://cdn2.stylecraze.com/wp-content/uploads/2014/01/2823.jpg",
-                "forwardUrl":"/pratise-test/",
+                "forwardUrl":"/practise-test/",
                 "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also \
                 the leap into electronic typesetting, remaining essentially unchanged..",
                 "chapter":"1",
@@ -22,7 +22,7 @@ class PractiseTest extends Component {
                 "heading":"English Learning",
                 "subject":"English",
                 "imageUrl":"http://cdn2.stylecraze.com/wp-content/uploads/2014/01/2823.jpg",
-                "forwardUrl":"/pratise-test/",
+                "forwardUrl":"/practise-test/",
                 "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also \
                 the leap into electronic typesetting, remaining essentially unchanged..",
                 "chapter":"1",
@@ -32,7 +32,7 @@ class PractiseTest extends Component {
                 "heading":"General Intelligence & Reasoning",
                 "subject":"Reasoning",
                 "imageUrl":"http://cdn2.stylecraze.com/wp-content/uploads/2014/01/2823.jpg",
-                "forwardUrl":"/pratise-test/",
+                "forwardUrl":"/practise-test/",
                 "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also \
                 the leap into electronic typesetting, remaining essentially unchanged..",
                 "chapter":"1",
@@ -42,7 +42,7 @@ class PractiseTest extends Component {
                 "heading":"General Awareness",
                 "subject":"generalAwareness",
                 "imageUrl":"http://cdn2.stylecraze.com/wp-content/uploads/2014/01/2823.jpg",
-                "forwardUrl":"/pratise-test/",
+                "forwardUrl":"/practise-test/",
                 "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also \
                 the leap into electronic typesetting, remaining essentially unchanged..",
                 "chapter":"1",

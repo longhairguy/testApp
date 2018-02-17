@@ -1,0 +1,21 @@
+.PractiseTestInit{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.InfoArea {
+    border: 1px solid grey;
+    padding: 5%;
+    margin-right:8%;
+    margin-left: 8%;
+    margin-top: 8%;
+    border-radius: 7px 7px 7px 7px;
+    -webkit-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 14px 32px 0px rgba(0, 0, 0, 0.15);
+}
+
+.InfoArea Button {
+    position: relative;
+    left: 40%;
+}

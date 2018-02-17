@@ -7,11 +7,6 @@ import {connect} from 'react-redux';
 import MenuDrawerItems from './MenuDrawerItems/MenuDrawerItems';
 import * as action from '../../store/actions/index';
 class ChapterMenu extends Component {
-    subjectName = this.props.match.params.subject
-    componentDidMount(){
-        this.props.getChapters(this.subjectName)
-        
-    }
     render(){
         let attachedClasses = [classes.ChapterssMenu,classes.Close];
         if(this.props.open){
@@ -40,10 +35,4 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        getChapters:(chapterName)=>dispatch(action.chapters(chapterName))
-    }
-}
-
-export default connect(mapStateToProps,mapDispatchToProps)(withRouter(ChapterMenu));
+export default connect(mapStateToProps)(withRouter(ChapterMenu));
