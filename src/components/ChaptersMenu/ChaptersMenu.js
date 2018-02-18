@@ -6,7 +6,13 @@ import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import MenuDrawerItems from './MenuDrawerItems/MenuDrawerItems';
 import * as action from '../../store/actions/index';
+import Spinner from '../UI/Spinner/Spinner';
 class ChapterMenu extends Component {
+    subjectName = this.props.match.params.subject
+    componentDidMount(){
+        this.props.getChapters(this.subjectName)
+        
+    }
     render(){
         let attachedClasses = [classes.ChapterssMenu,classes.Close];
         if(this.props.open){
@@ -17,7 +23,10 @@ class ChapterMenu extends Component {
             <Aux>
                 <Backdrop show={this.props.open} clicked={this.props.closed}/>
                 <div className={attachedClasses.join(' ')} onClick = {this.props.closed}>
-                    <MenuDrawerItems chapters={this.props.chapters}/>
+                    {this.props.chapters?
+                        <MenuDrawerItems chapters={this.props.chapters}/>:
+                        <Spinner />
+                        }
                     
                 </div>
             </Aux>
@@ -35,4 +44,10 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps)(withRouter(ChapterMenu));
+const mapDispatchToProps = dispatch => {
+    return {
+        getChapters:(chapterName)=>dispatch(action.chapters(chapterName))
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(withRouter(ChapterMenu));

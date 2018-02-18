@@ -3,61 +3,55 @@ import classes from './QuestionArea.css'
 import Button from '../UI/Button/Button'
 import Modal from '../UI/Modal/Modal';
 import {connect} from 'react-redux';
-import {Link,Redirect,withRouter} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import Spinner from '../UI/Spinner/Spinner';
+import { withRouter } from 'react-router-dom';
 import * as actions from '../../store/actions/index';
 class QuestionArea extends Component {
     state = {
-        closeClicked:false;
+        closeClicked:false
     }
-    question_url = this.props.match.params.subject
-    subjectName = this.props.match.params.subject
-    current_question_number = parseInt(this.props.match.params.question)-1
+    current_question_number = parseInt(this.props.match.params.question) - 1
+    
+    url_with_question_number = this.props.match.params.subject+'/'+(parseInt(this.props.match.params.chapter)-1).toString()+'/'  
     closeClickedHandler = () => {
         this.setState((prevState)=>{
             return {closeClicked:!prevState.closeClicked}
         })
         
     }
-    nextQuestion = (url) => {
-        console.log(url)
-        return(<Redirect to="/" />)
+    nextQuestion = () => {
+        this.current_question_number += 1
+        const final_url = this.url_with_question_number + (this.current_question_number).toString()
+        const next_url = this.props.location.pathname.slice(0,this.props.location.pathname.length-1)+(this.current_question_number+1).toString()
+       // console.log(this.current_question_number)
+        this.props.nextQuestion(final_url)
+        window.location = next_url
     }
-    componentDidMount(){
-        if(this.props.question_data[this.current_question_number]==undefined){
-            this.props.getQuestions(this.props.match.params.subject)
-            this.props.getChapters(this.props.match.params.subject)
-        }
-        console.log('s',this.props.question_data[1])
-     
+    previousQuestion = () => {
+        this.current_question_number -= 1
+        const final_url = this.url_with_question_number + (this.current_question_number).toString()
+        const next_url = this.props.location.pathname.slice(0,this.props.location.pathname.length-1)+(this.current_question_number+1).toString()
+       // console.log(this.current_question_number)
+        this.props.nextQuestion(final_url)
+        //this.props.history.push(next_url)
     }
-    componentWillUpdate(){
-        console.log('update')    
-    }
-    nextQuestionHandler = () => {
-        console.log('s',this.props)
-        this.current_question_number += 1;
-        console.log(this.current_question_number)
-        this.props.history.push(this.props.nextUrl)
-        
-    }
+    /*componentWillMount() {
+        this.unlisten = this.props.history.listen((location, action) => {
+          this.nextQuestion(location.pathname.slice(14,location.pathname.length));
+        });
+      }
+      */
+      
     render(){
-        console.log('ye')
-        console.log(this.props)
+       console.log(this.current_question_number)
         let question = null;
         let options = <Spinner />;
-        const question_data = this.props.question_data.length
-        if(question_data){
-            for(let key in question_data ){
-                console.log('sdsd',question_data[key])
-            }
-        }
-       
-        if(this.props.question_data[this.current_question_number]){
-        question = this.props.question_data[this.current_question_number].question
-        options = this.props.question_data[this.current_question_number].options.map(option=>{
+        if(this.props.question){
+        question = this.props.question.question
+        options = this.props.question.options.map(option=>{
             return (
-                <label className={classes.container} key={this.props.question_data[this.current_question_number].options.indexOf(option)}>
+                <label className={classes.container} key={this.props.question.options.indexOf(option)}>
                 <span className={classes.option}>{option}</span>
                     <input type="radio" name="radio"/>
                     <span className={classes.checkmark}></span>
@@ -74,43 +68,34 @@ class QuestionArea extends Component {
                             <i className="fa fa-close" onClick={this.closeClickedHandler}></i>
                         </span>
                     </div>
-                    <Modal show={this.state.closeClicked} modalClosed={this.closeClickedHandler} >
+                    <Modal show={this.state.closeClicked || this.current_question_number<0} modalClosed={this.closeClickedHandler} >
                         <h3 style={{"textAlign":"center"}}>Do you want to leave practise session ?</h3>
                         <div style={{"marginLeft":"35%"}}>
                         <Link to="/select-test"><Button btnType="Danger">&nbsp;Yes</Button></Link>
                         <Button clicked={this.closeClickedHandler} btnType="Default">&nbsp;No</Button>
                         </div>
                     </Modal>
-
                     <h3 style={{"marginLeft":"3%"}}> {question}</h3>
                     <form>
                             {options}
                         <br/>
-                       
-                       
+                        
                     </form>
-                    <div style={{"marginLeft":"35%"}}>
+                    <div style={{"marginLeft":"20%"}}>
+                        <Button btnType="Danger" clicked={this.previousQuestion} disabled={this.current_question_number<=0?true:false}> &nbsp;Previous</Button>
                         <Button btnType="Success"> &nbsp;Submit</Button>
-                        <Button btnType="Warning" clicked={this.nextQuestionHandler}>Skip</Button>
-                    </div> 
+                        <Button btnType="Warning" clicked={this.nextQuestion} >Skip</Button>
+                        </div> 
                 </div>
             </div>
         )
     }
 }
 
-const mapStateToProps = state => {
+const mapDispatchToProps = dispatch => {
     return {
-        question_list:state.questions.questions
+        nextQuestion:(url)=>dispatch(actions.questions(url))
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-      getQuestions:(url)=>dispatch(actions.questions(url)),
-      getChapters:(chapterName)=>dispatch(actions.chapters(chapterName))
-    }
-  }
-  
-
-export default connect(mapStateToProps,mapDispatchToProps)(withRouter(QuestionArea));
+export default connect(null,mapDispatchToProps)(withRouter(QuestionArea));

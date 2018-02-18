@@ -35,8 +35,7 @@ const cards = (props) => {
           key={data.id}
           heading={data.heading}
           description={data.description}
-          //forwardUrl={data.forwardUrl+data.subject+'/'+data.chapter+'/'+data.question_number}
-          forwardUrl={data.forwardUrl+data.subject}
+          forwardUrl={data.forwardUrl+data.subject+'/'+data.chapter+'/'+data.question_number}
           buttonValue={props.buttonValue}/>}
            )
       }

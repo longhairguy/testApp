@@ -10,8 +10,10 @@ export const getQuestions = (data) =>{
 
 export const questions = (subject_data) => {
   const url = "https://testseries-57ff0.firebaseio.com/Questions/"+subject_data+'.json'
+  console.log(url)
   return dispatch=>{
     axios.get(url).then(response=>{
+      console.log('res',response)
       dispatch(getQuestions(response.data))
     }).catch(err=>{
       console.log(err);
