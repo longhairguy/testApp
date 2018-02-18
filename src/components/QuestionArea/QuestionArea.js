@@ -8,7 +8,7 @@ import Spinner from '../UI/Spinner/Spinner';
 import * as actions from '../../store/actions/index';
 class QuestionArea extends Component {
     state = {
-        closeClicked:false
+        closeClicked:false;
     }
     question_url = this.props.match.params.subject
     subjectName = this.props.match.params.subject
