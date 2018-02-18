@@ -9,9 +9,12 @@ import classes from './PratiseTestStart.css';
 import Spinner from '../../components/UI/Spinner/Spinner';
 class PratiseTestStart extends Component {
   state = {
-    showSideDrawer:false
+    showSideDrawer:false,
+    pageChanged:false,
   }
-   
+  question_url = this.props.match.params.subject+'/'+(parseInt(this.props.match.params.chapter)-1).toString()+'/'+(parseInt(this.props.match.params.question)-1).toString()
+  current_question_number = parseInt(this.props.match.params.question) - 1
+  
   sideDrawerClosedHandler = () => {
     this.setState( { showSideDrawer: false } );
   }
@@ -22,46 +25,37 @@ class PratiseTestStart extends Component {
       } );
 
   }
-  questions_data = null;
-  questions_array = [];
-  current_question_element = parseInt(this.props.match.params.question) - 1
-  current_question_number = parseInt(this.props.match.params.question)
+  componentDidMount(){
+    this.props.getQuestions(this.question_url)
+    this.setState({
+      pageChanged:!this.state.pageChanged
+    })
+    console.log('ho')
+  }
+  shouldComponentUpdate(nextProps,nextState) {
+    const url = this.props.match.params.subject+'/'+(parseInt(this.props.match.params.chapter)-1).toString()+'/'+(parseInt(this.props.match.params.question)-1).toString()
+    //this.props.getQuestions(url)
+    if(nextState.pageChanged){
+      console.log('trigger')
+      return true;
+    }
+    console.log('not trigger')
+    return false;
+  }
     render(){
-      for(let key in this.props.questions){
-        for(let data in this.props.questions[key]){
-          console.log(this.props.questions[key][data])
-          this.questions_data = this.props.questions[key][data]
-          this.questions_array.push(this.props.questions[key][data])
-        }
-      }
-      /*if(this.props.questions){
-        console.log('dad',this.props.questions)
-        this.props.questions.map(question=>{
-          this.questions_Array.push(question)
-        })
-      }*/
-      console.log('res',this.questions_array)
-      let final_array =[];
-      if(this.questions_array){
-        final_array = this.questions_array
-      }
+      console.log('sd')
       return(
-        
-        <div>
+        <div className={classes.PratiseTestStart}>
             <div>
               <Toggler clicked={this.sideDrawerToggleHandler} />
               
             </div>
-            
-            {this.questions_array!==null?
-              <QuestionArea 
-                className={classes.QuestionArea} 
-                question_data={final_array}
-                nextUrl={this.props.location.pathname.slice(0,this.props.location.pathname.length-1)+(parseInt(this.current_question_number)+1).toString()}
-                />:
+            {this.props.question!==null?
+              <QuestionArea className={classes.QuestionArea} question={this.props.question}/>:
               <Spinner/>}
-            <ChaptersMenu open={this.state.showSideDrawer} closed={this.sideDrawerClosedHandler}/>
-          
+            {this.state.showSideDrawer?<ChaptersMenu open={this.state.showSideDrawer} closed={this.sideDrawerClosedHandler}/>:null}
+
+                     
         </div>
       )
   }
@@ -69,9 +63,13 @@ class PratiseTestStart extends Component {
 
 const mapStateToProps = state => {
   return {
-    questions:state.questions.questions
+    question:state.questions.questions
+  }
+}
+const mapDispatchToProps = dispatch => {
+  return {
+    getQuestions:(url)=>dispatch(actions.questions(url))
   }
 }
 
-
-export default connect(mapStateToProps)(withRouter(PratiseTestStart));
+export default connect(mapStateToProps,mapDispatchToProps)(withRouter(PratiseTestStart));
