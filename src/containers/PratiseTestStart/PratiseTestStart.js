@@ -68,7 +68,7 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch => {
   return {
-    getQuestions:(url)=>dispatch(actions.questions(url))
+    getQuestions:(url)=>dispatch(actions.questions(url)),
   }
 }
 

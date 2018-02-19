@@ -1,7 +1,8 @@
 import * as actionType from '../actions/actionTypes';
 
 const initialState = {
-    selectTestData:null
+    selectTestData:null,
+    subjectDescription:null,
 }
 
 const getTestData = (state,action) => {
@@ -11,12 +12,18 @@ const getTestData = (state,action) => {
     }
 }
 
-
+const getQuestionDescription = (state,action) => {
+    return{
+        ...state,
+        subjectDescription:action.data
+    }
+}
 
 
 const reducers = (state=initialState,action) => {
     switch(action.type){
         case actionType.GET_TEST_TYPE:return getTestData(state,action)
+        case actionType.GET_QUESTION_DESCRIPTION:return getQuestionDescription(state,action)
         default:return state
     }
 }

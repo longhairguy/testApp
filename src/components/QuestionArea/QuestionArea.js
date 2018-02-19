@@ -63,7 +63,7 @@ class QuestionArea extends Component {
             <div className={classes.QuestionArea}>
                 <div className={classes.Question}>
                     <div>
-                        <span style={{"fontSize":"28px"}}>Question 1:</span>
+                        <span style={{"fontSize":"28px"}}>Question {this.current_question_number+1}:</span>
                         <span style={{"float":"right"}} className={classes.close} >
                             <i className="fa fa-close" onClick={this.closeClickedHandler}></i>
                         </span>

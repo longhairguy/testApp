@@ -12,7 +12,8 @@ export {
 } from './auth';
 
 export {
-    getTest
+    getTest,
+    getSubjectDescription
 } from  './selectTest';
 
 export {

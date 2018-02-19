@@ -5,6 +5,7 @@ import NavLayout from '../../hoc/NavLayout/NavLayout';
 import Cards from '../../components/CardArea/Cards/Cards';
 import {connect} from 'react-redux';
 import Spinner from '../../components/UI/Spinner/Spinner';
+import * as actions from '../../store/actions/index';
 class PractiseTest extends Component {
     state = {
         subjects:[
@@ -50,14 +51,18 @@ class PractiseTest extends Component {
             },
         ]
     }
+    componentDidMount(){
+        this.props.getSubjectDescription()
+    }
     render () {
+        
         return (
             <div className={classes.PractiseTest}>
                 <NavLayout />
                 <br />
                 <h1 style={{"textAlign":"center"}}>Select Subject <i className="fa fa-arrow-circle-down"></i></h1>
 
-                {this.props.testTypes!==null?<Cards testTypes={this.state.subjects} buttonValue="Start"/>:<Spinner />}
+                {this.props.testTypes!==null?<Cards testTypes={this.props.subjectDescription} buttonValue="Start"/>:<Spinner />}
             </div>
 
         )
@@ -66,10 +71,17 @@ class PractiseTest extends Component {
 
 const mapStateToProps = state => {
     return {
-        testTypes:state.selectTest.selectTestData
+        testTypes:state.selectTest.selectTestData,
+        subjectDescription:state.selectTest.subjectDescription
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        getSubjectDescription:()=>dispatch(actions.getSubjectDescription())
     }
 }
 
 
 
-export default connect(mapStateToProps)(PractiseTest);
+export default connect(mapStateToProps,mapDispatchToProps)(PractiseTest);
