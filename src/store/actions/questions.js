@@ -9,6 +9,7 @@ export const getQuestions = (data) =>{
 }
 
 export const questions = (subject_data) => {
+  console.log('su',subject_data)
   const url = "https://testseries-57ff0.firebaseio.com/Questions/"+subject_data+'.json'
   console.log(url)
   return dispatch=>{
@@ -39,3 +40,6 @@ export const chapters = (chapter) => {
   }
   
 }
+
+
+

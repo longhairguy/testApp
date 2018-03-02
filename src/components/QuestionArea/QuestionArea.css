@@ -31,9 +31,9 @@
     position: relative;
     left: 4%;
 }
-.SolutionArea h4 {
+.SolutionArea h2 {
     text-align: center;
-    color:skyblue;
+    color:coral;
 }
 .SolutionArea {
     padding: 2%;

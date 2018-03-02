@@ -31,6 +31,7 @@ class QuestionArea extends Component {
         const final_url = this.url_with_question_number + (this.current_question_number).toString()
         const next_url = this.props.location.pathname.slice(0,this.props.location.pathname.length-1)+(this.current_question_number+1).toString()
        // console.log(this.current_question_number)
+
         this.props.nextQuestion(final_url)
         window.location = next_url
     }
@@ -75,7 +76,7 @@ class QuestionArea extends Component {
       */
       
     render(){
-       
+        console.log('win::',window)
         let question = null;
         let options = null;
         let question_number = null;
@@ -141,9 +142,10 @@ class QuestionArea extends Component {
                      console.log('correct')
                      question_area = (
                          <div className = {classes.Solution}>
-                             <img className={classes.tick} src={tick} />
                              <div className={classes.SolutionArea}>
-                                <h4>Our Solution</h4>
+                                <img className={classes.tick} src={tick} />
+                             
+                                <h2>Our Solution</h2>
                                 <img className={classes.answer} src="http://www.physics-assignment.com/wp-content/uploads/2013/06/1.png" />
                                 <Button btnType="Warning" clicked={this.nextQuestion}>&nbsp;&nbsp;Next ></Button>
                              </div>
@@ -155,9 +157,10 @@ class QuestionArea extends Component {
                     console.log('incorrect')
                     question_area = (
                         <div className = {classes.Solution}>
-                             <img className={classes.tick} src={cross} />
                              <div className={classes.SolutionArea}>
-                                <h4>Our Solution</h4>
+                                <img className={classes.tick} src={cross} />
+                             
+                                <h2>Our Solution</h2>
                                 <img className={classes.answer} src="http://www.physics-assignment.com/wp-content/uploads/2013/06/1.png" />
                                 <Button btnType="Warning" clicked={this.nextQuestion}>&nbsp;&nbsp;Next ></Button>
                              </div>

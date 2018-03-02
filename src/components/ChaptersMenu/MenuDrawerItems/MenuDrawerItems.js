@@ -4,6 +4,7 @@ import classes from './MenuDrawerItems.css';
 import MenuDrawerItem from './MenuDrawerItem/MenuDrawerItem';
 
 const menuDrawerItems = (props) => {
+    console.log('xs',props)
     let url = props.location.pathname.slice(0,props.location.pathname.length-3)
     console.log(props.location.pathname.slice(0,props.location.pathname.length-3))
     let chapters = null;
@@ -12,6 +13,8 @@ const menuDrawerItems = (props) => {
             return (<MenuDrawerItem 
                 
                 key={props.chapters.indexOf(chapter)}
+                chapterNumber={props.chapters.indexOf(chapter)}
+                baseUrl = {props.match.params['subject']}
                 url={url+(parseInt(props.chapters.indexOf(chapter))+1).toString()+'/1'}>{chapter}
                 
                 </MenuDrawerItem>)
