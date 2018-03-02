@@ -7,13 +7,15 @@ import {Link} from 'react-router-dom';
 import Spinner from '../UI/Spinner/Spinner';
 import { withRouter } from 'react-router-dom';
 import * as actions from '../../store/actions/index';
+import tick from '../../assets/tick.png';
+import cross from '../../assets/cross.png';
 import Aux from '../../hoc/Aux/Aux';
 class QuestionArea extends Component {
     state = {
         closeClicked:false,
         checkBoxValue:null,
-        userInAnswerState:true,
-        //questionVisibility:true,
+        userAnswerState:false,
+        questionVisibility:true,
     }
     current_question_number = parseInt(this.props.match.params.question) - 1
     
@@ -46,13 +48,16 @@ class QuestionArea extends Component {
         if(this.props.question.answer == this.state.checkBoxValue ){
             console.log('correct')
             this.setState({
-                userInAnswerState:false,
-                //questionVisibility:!this.state.questionVisibility
+                userAnswerState:true,
+                questionVisibility:!this.state.questionVisibility
             })
         }
         else {
             console.log('incorrect')
-            this.setState({userInAnswerState:false})
+            this.setState({
+                userAnswerState:false,
+                questionVisibility:!this.state.questionVisibility
+            })
         }
         
     }
@@ -72,11 +77,13 @@ class QuestionArea extends Component {
     render(){
        
         let question = null;
-        let options = <Spinner />;
+        let options = null;
         let question_number = null;
-        let buttons = null;
+        let question_area = <Spinner />;
+        
         if(this.props.question){
-            if(this.state.userInAnswerState){
+            
+            if(this.state.questionVisibility){
                 question = this.props.question.question
             
                 options = this.props.question.options.map(option=>{
@@ -89,34 +96,15 @@ class QuestionArea extends Component {
                     
                     )
                 })
-                question_number = (
+
+                /*  ---------------------- */
+                question_area = (
+                    <div className={classes.Question}>
+                    <div>
                     <span style={{"fontSize":"28px"}}>
                                 Question {this.current_question_number+1}:
                             </span>
-                            
-                )
 
-                buttons = (
-                            <Aux>
-                            <Button btnType="Danger" clicked={this.previousQuestion} disabled={this.current_question_number<=0?true:false}> &nbsp;Previous</Button>
-                            <Button btnType="Success" clicked={this.checkAnswer}> &nbsp;Submit</Button>
-                            <Button btnType="Warning" clicked={this.nextQuestion} >Skip</Button>
-                            </Aux>
-                )
-            }
-            else{
-                options = (
-                    <Aux>
-                        <h1>Yos</h1>
-                    </Aux>
-                )
-            }
-        }
-        return (
-            <div className={classes.QuestionArea}>
-                <div className={classes.Question}>
-                    <div>
-                        {question_number}
                         <span style={{"float":"right"}} className={classes.close} >
                             <i className="fa fa-close" onClick={this.closeClickedHandler}></i>
                         </span>
@@ -135,9 +123,53 @@ class QuestionArea extends Component {
                         
                     </form>
                     <div style={{"marginLeft":"20%"}}>
-                        {buttons}    
+                            <Button btnType="Danger" clicked={this.previousQuestion} disabled={this.current_question_number<=0?true:false}> &nbsp;Previous</Button>
+                            <Button btnType="Success" clicked={this.checkAnswer} disabled = {!this.state.checkBoxValue}> &nbsp;Submit</Button>
+                            <Button btnType="Warning" clicked={this.nextQuestion} >Skip</Button>
                     </div> 
                 </div>
+                )
+
+
+                /* ----------------------- */
+                
+
+            }
+
+            else{
+                if(this.state.userAnswerState){
+                     console.log('correct')
+                     question_area = (
+                         <div className = {classes.Solution}>
+                             <img className={classes.tick} src={tick} />
+                             <div className={classes.SolutionArea}>
+                                <h4>Our Solution</h4>
+                                <img className={classes.answer} src="http://www.physics-assignment.com/wp-content/uploads/2013/06/1.png" />
+                                <Button btnType="Warning" clicked={this.nextQuestion}>&nbsp;&nbsp;Next ></Button>
+                             </div>
+                             
+                         </div>
+                     )
+                }
+                else{
+                    console.log('incorrect')
+                    question_area = (
+                        <div className = {classes.Solution}>
+                             <img className={classes.tick} src={cross} />
+                             <div className={classes.SolutionArea}>
+                                <h4>Our Solution</h4>
+                                <img className={classes.answer} src="http://www.physics-assignment.com/wp-content/uploads/2013/06/1.png" />
+                                <Button btnType="Warning" clicked={this.nextQuestion}>&nbsp;&nbsp;Next ></Button>
+                             </div>
+                             
+                         </div>
+                    )
+                }
+            }
+        }
+        return (
+            <div className={classes.QuestionArea}>
+                {question_area}
             </div>
         )
     }
