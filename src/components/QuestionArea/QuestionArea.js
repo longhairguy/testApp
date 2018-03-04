@@ -15,7 +15,7 @@ class QuestionArea extends Component {
         closeClicked:false,
         checkBoxValue:null,
         userAnswerState:false,
-        questionVisibility:true,
+       
     }
     current_question_number = parseInt(this.props.match.params.question) - 1
     
@@ -48,17 +48,21 @@ class QuestionArea extends Component {
     checkAnswer = () => {
         if(this.props.question.answer == this.state.checkBoxValue ){
             console.log('correct')
+
+
             this.setState({
                 userAnswerState:true,
-                questionVisibility:!this.state.questionVisibility
+                checkBoxValue:null
             })
+            this.props.answerState()
         }
         else {
             console.log('incorrect')
             this.setState({
                 userAnswerState:false,
-                questionVisibility:!this.state.questionVisibility
+                checkBoxValue:null
             })
+            this.props.answerState()
         }
         
     }
@@ -84,7 +88,7 @@ class QuestionArea extends Component {
         
         if(this.props.question){
             
-            if(this.state.questionVisibility){
+            if(this.props.questionVisibilty){
                 question = this.props.question.question
             
                 options = this.props.question.options.map(option=>{
@@ -180,7 +184,8 @@ class QuestionArea extends Component {
 
 const mapDispatchToProps = dispatch => {
     return {
-        nextQuestion:(url)=>dispatch(actions.questions(url))
+        nextQuestion:(url)=>dispatch(actions.questions(url)),
+        answerState:()=>dispatch(actions.answerState())
     }
 }
 

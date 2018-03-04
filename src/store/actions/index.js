@@ -18,5 +18,6 @@ export {
 
 export {
   questions,
-  chapters
+  chapters,
+  answerState,
 } from './questions';

@@ -51,7 +51,11 @@ class PratiseTestStart extends Component {
               
             </div>
             {this.props.question!==null?
-              <QuestionArea className={classes.QuestionArea} question={this.props.question}/>:
+              <QuestionArea 
+                className={classes.QuestionArea} 
+                question={this.props.question}
+                questionVisibilty={this.props.questionVisibilty}
+                />:
               <Spinner/>}
             {this.state.showSideDrawer?<ChaptersMenu open={this.state.showSideDrawer} closed={this.sideDrawerClosedHandler}/>:null}
 
@@ -63,7 +67,8 @@ class PratiseTestStart extends Component {
 
 const mapStateToProps = state => {
   return {
-    question:state.questions.questions
+    question:state.questions.questions,
+    questionVisibilty:state.questions.questionVisibilty
   }
 }
 const mapDispatchToProps = dispatch => {

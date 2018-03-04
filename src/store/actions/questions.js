@@ -29,6 +29,11 @@ export const getChapters = (data) => {
   }
 }
 
+export const answerState = () => {
+  return {
+    type:actionTypes.ANSWER_STATE,
+  }
+}
 export const chapters = (chapter) => {
   return dispatch=>{
     axios.get("https://testseries-57ff0.firebaseio.com/Chapters/"+chapter+".json").then(response=>{
@@ -40,6 +45,7 @@ export const chapters = (chapter) => {
   }
   
 }
+
 
 
 
