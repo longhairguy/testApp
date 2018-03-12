@@ -51,7 +51,7 @@ Daily Learning Section: This section will provide daily goals to learn new topic
 ## How to Run This :-
 
 #### Use Docker! 
-      We have Dockerized the Whole app and you can use it using these kinds .
+      We have Dockerized the Whole app and you can use by following these commands.
 
 #### First Install Docker 
    Link:https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04
