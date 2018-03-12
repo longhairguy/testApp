@@ -1,12 +1,13 @@
 # Basic Description
 
-## END GOAL
-     #### The main purpose of this platform is to provide free education to all.
-     ##### It will be a community platform on which anyone can come up and practise for their exams by following different practise path provided.
+### END GOAL
 
-## Intial Phase
-### Intially we are targetting SSC (Staff Selection Commision) Examination .
-### Here Students can come up make their account and can do practise for their exam for free of cost.
+The main purpose of this platform is to provide free education to all.
+It will be a community platform on which anyone can come up and practise for their exams by following different practise path provided.
+
+### Intial Phase
+
+Intially we are targetting SSC (Staff Selection Commision) Examination .Here Students can come up make their account and can do practise for their exam for free of cost.
 
 ## Practise Trials
 ### The project is divided into three sections:
