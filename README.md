@@ -33,6 +33,9 @@ Weekly Test Section: This section will be similar to the daily test based sectio
                      final performance of user will be depend on this test. We will release performance chart every week in
                      which highest priority will be given to this section.
 
+Daily Learning Section: This section will provide daily goals to learn new topics .It will contain fun tasks to complete and to                        
+                        learn along way.
+
 ## What we are Analyzing and Depicting in Graphs
 1. Time Taken To Solve Single Problem
 2. Number of Attempts he/she takes to solve a particular question 
@@ -41,25 +44,26 @@ Weekly Test Section: This section will be similar to the daily test based sectio
 
 
 ## Technologies :
-### * React.js
-### * Django
+     * React.js
+     * Django
       
       
 ## How to Run This :-
 
-### Docker 
+#### Use Docker! 
       We have Dockerized the Whole app and you can use it using these kinds .
-### First Install Docker 
+
+#### First Install Docker 
    Link:https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04
-### Install Docker-Compose
+
+#### Install Docker-Compose
    Link:https://docs.docker.com/compose/install/
 
-### Go To Project Folder and then Use these commands:
+#### Go To Project Folder and then Use these commands:
       * docker-compose build 
       * docker-compose up -d
  
 
-      
       
       
       
