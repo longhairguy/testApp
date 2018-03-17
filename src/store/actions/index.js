@@ -21,3 +21,9 @@ export {
   chapters,
   answerState,
 } from './questions';
+
+
+export {
+    statistic_data
+}
+from './statistics';

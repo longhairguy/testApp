@@ -8,6 +8,7 @@ import SelectTest from './containers/SelectTest/SelectTest';
 import * as actions from './store/actions/index';
 import PractiseTest from './containers/PractiseTest/PractiseTest';
 import PractiseTestStart from './containers/PratiseTestStart/PratiseTestStart';
+import StatisticArea from './containers/StatisticArea/StatisticArea';
 class App extends Component {
   componentDidMount () {
     this.props.onTryAutoSignup();
@@ -21,6 +22,7 @@ class App extends Component {
           <Route path="/logout" exact component={Logout} />
           <Route path="/select-test" exact component={SelectTest} />
           <Route path="/practise-test" exact component={PractiseTest} />
+          <Route path="/statistics" exact component={StatisticArea} />
           <Route path="/practise-test/:subject/:chapter/:question" exact component={PractiseTestStart} />
 
         </Switch>

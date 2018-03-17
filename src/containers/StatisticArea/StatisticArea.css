@@ -1,0 +1,67 @@
+
+.StatisticArea{
+    background-color: rgba(255,255,229,0.3);
+}
+
+.sidenav {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    margin-top: 2%;
+    background-color: black;
+    overflow-x: hidden;
+    padding-top: 20px;
+    border-radius: 5px;
+}
+
+.sidenav li {
+    padding: 6px 12px 6px 16px;
+    text-decoration: none;
+    font-size: 18px;
+    color: orange;
+    display: block;
+    text-align: center;
+    margin-bottom: 10%;
+    margin-top: 20%;
+    margin-right: 12%;
+    font-family: Courier New, Courier, monospace
+}
+
+.sidenav li:hover {
+    color: skyblue;
+    cursor: pointer;
+}
+
+.main {
+    margin-left: 200px; /* Same as the width of the sidenav */
+    font-size: 28px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+}
+
+.graphArea{
+    padding: 10%;
+}
+
+
+.icon {
+    animation-name: icon_motion;
+    animation-duration: 4s;
+    position: relative;
+    animation-iteration-count: infinite
+}
+
+@keyframes icon_motion {
+    0%{left:0px;top:0px;}
+    25%{left:2%;top:0px}
+    50%{left:0px;top:0px}
+    75%{left:2%;top:0px}
+    100%{left:0px;top:0px}
+
+}
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}

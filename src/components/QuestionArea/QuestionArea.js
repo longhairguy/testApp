@@ -9,14 +9,19 @@ import { withRouter } from 'react-router-dom';
 import * as actions from '../../store/actions/index';
 import tick from '../../assets/tick.png';
 import cross from '../../assets/cross.png';
-import Aux from '../../hoc/Aux/Aux';
+
 class QuestionArea extends Component {
+    startTime = 0;
+    endTime = 0;
+    total_time_taken = 0;
     state = {
         closeClicked:false,
         checkBoxValue:null,
         userAnswerState:false,
+        attempts:1, //this will help to see how many time a user attempt to a question
        
     }
+
     current_question_number = parseInt(this.props.match.params.question) - 1
     
     url_with_question_number = this.props.match.params.subject+'/'+(parseInt(this.props.match.params.chapter)-1).toString()+'/'  
@@ -46,9 +51,13 @@ class QuestionArea extends Component {
     }
 
     checkAnswer = () => {
+        this.endTime = Date.now()
+        this.total_time_taken = this.endTime - this.startTime;
+        this.total_time_taken /= 1000;
+        console.log(this.total_time_taken)
         if(this.props.question.answer == this.state.checkBoxValue ){
             console.log('correct')
-
+            
 
             this.setState({
                 userAnswerState:true,
@@ -69,7 +78,8 @@ class QuestionArea extends Component {
 
     setRadio = (event)=> {
         this.setState({
-            checkBoxValue:event.currentTarget.value
+            checkBoxValue:event.currentTarget.value,
+            attempts:this.state.attempts+1
         })
     }
     /*componentWillMount() {
@@ -78,7 +88,9 @@ class QuestionArea extends Component {
         });
       }
       */
-      
+    componentWillMount(){
+        this.startTime = Date.now()
+    }
     render(){
         console.log('win::',window)
         let question = null;
