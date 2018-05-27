@@ -1,5 +1,9 @@
 # Basic Description
 
+### SNAPSHOTS
+![video-1527394057](https://user-images.githubusercontent.com/31826531/40588774-75c0aa5a-6200-11e8-98fc-2dbf81eab92c.gif)
+
+
 ### END GOAL
 
 The main purpose of this platform is to provide free education to all.
