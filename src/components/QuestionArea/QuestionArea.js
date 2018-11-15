@@ -161,8 +161,8 @@ class QuestionArea extends Component {
                              <div className={classes.SolutionArea}>
                                 <img className={classes.tick} src={tick} />
                              
-                                <h2>Our Solution</h2>
-                                <img className={classes.answer} src="http://www.physics-assignment.com/wp-content/uploads/2013/06/1.png" />
+                                <h2>Your Selected Options is Correct</h2>
+                                <h4>Please select next to move forward</h4>
                                 <Button btnType="Warning" clicked={this.nextQuestion}>&nbsp;&nbsp;Next ></Button>
                              </div>
                              
@@ -176,8 +176,8 @@ class QuestionArea extends Component {
                              <div className={classes.SolutionArea}>
                                 <img className={classes.tick} src={cross} />
                              
-                                <h2>Our Solution</h2>
-                                <img className={classes.answer} src="http://www.physics-assignment.com/wp-content/uploads/2013/06/1.png" />
+                                <h2>Your Selected Options is Incorrect</h2>
+                                <h4>Please select next to move forward</h4>
                                 <Button btnType="Warning" clicked={this.nextQuestion}>&nbsp;&nbsp;Next ></Button>
                              </div>
                              
